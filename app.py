@@ -12,16 +12,10 @@ app.secret_key = os.environ.get("SECRET_KEY", "super-secret-key")
 # ================= DATABASE CONNECTION =================
 
 def get_connection():
-    return psycopg2.connect(
-        dbname=os.environ.get("DB_NAME", "resume_builder"),
-        user=os.environ.get("DB_USER", "postgres"),
-        password=os.environ.get("DB_PASSWORD", "admin"),
-        host=os.environ.get("DB_HOST", "localhost"),
-        port="5432"
-    )
-
+    return psycopg2.connect(os.environ.get("DATABASE_URL"))
 
 # ================= ROUTES =================
+
 
 @app.route("/")
 def home():
