@@ -18,6 +18,17 @@ body {
   text-align: center;
 }
 
+.links {
+  padding: 5px 10px;
+  color: white;
+  border-radius: 100px;
+  background: black;
+  text-decoration: none;
+}
+
+.links:hover {
+  text-decoration: underline;
+}
 /* HERO */
 
 .hero {
@@ -225,10 +236,11 @@ h2 {
 }
 
 /* FOOTER */
+/* ================= FOOTER ================= */
 
 footer {
-  background: white;
-  padding: 25px 0;
+  background: linear-gradient(90deg, #ffffff, #f8f9ff);
+  padding: 30px 0;
   border-top: 1px solid #e2e8f0;
 }
 
@@ -237,8 +249,49 @@ footer {
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
+  flex-wrap: wrap;
 }
 
 .logo {
   font-weight: 700;
+  font-size: 18px;
+}
+
+.developer-name {
+  font-weight: 600;
+  color: #3b4eff;
+  text-decoration: none;
+  margin: 0 5px;
+  transition: 0.3s ease;
+}
+
+.developer-name:hover {
+  color: #1f2fff;
+  text-shadow: 0 0 8px rgba(59, 78, 255, 0.4);
+}
+
+.social-icons {
+  display: inline-flex;
+  gap: 20px;
+  margin-left: 15px;
+}
+
+.social-link {
+  font-size: 20px;
+  color: #0f172a;
+  transition: 0.3s ease;
+}
+
+.social-link:hover {
+  color: #3b4eff;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
 }

@@ -17,6 +17,11 @@
 
     <link
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <link
+      rel="stylesheet"
       href="{{ url_for('static', filename='index.css') }}"
     />
   </head>
@@ -133,11 +138,36 @@
     <footer>
       <div class="container footer-content">
         <div class="logo">Resumatic</div>
+
         <div class="copyright">
-          © 2026 Resumatic. Developed By
-          <a href="https://www.linkedin.com/in/mohitnimbalkar/"
-            >Mohit Nimbalkar ⚡</a
+          © 2026 Resumatic. Developed by
+          <span
+            class="developer-name"
+            target="_blank"
+            rel="noopener noreferrer"
           >
+            Mohit Nimbalkar
+          </span>
+
+          <div class="social-icons">
+            <a
+              href="https://www.instagram.com/mohitt.11_/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/mohitnimbalkar/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
         </div>
       </div>
     </footer>

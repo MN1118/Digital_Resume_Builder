@@ -82,7 +82,7 @@ footer {
   align-items: center;
   gap: 40px;
   padding: 40px;
-  background: #F9FAFB;
+  background: #f9fafb;
 }
 
 .auth-card {
@@ -125,6 +125,11 @@ footer {
   font-weight: 500;
 }
 
+@media (max-width: 900px) {
+  .auth-wrapper {
+    flex-direction: column;
+  }
+}
 /* ---------- BUILDER LAYOUT FIX ---------- */
 
 .builder-container {
