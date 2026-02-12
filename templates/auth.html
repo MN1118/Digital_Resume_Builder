@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Authentication | Resumatic</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link
+      rel="shortcut icon"
+      href="https://static.wixstatic.com/media/5c0589_e30e6ff390554063b3ccb163b93366aa~mv2.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <div class="auth-wrapper">
+      <!-- REGISTER -->
+      <div class="auth-card card">
+        <h2>Create Account</h2>
+        <form
+          action="/register"
+          method="post"
+          onsubmit="return validateRegister();"
+        >
+          <input name="name" placeholder="Full Name" required />
+          <input name="email" placeholder="Email" required />
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            required
+          />
+          <button class="btn">Register</button>
+        </form>
+      </div>
+
+      <!-- LOGIN -->
+      <div class="auth-card card">
+        <h2>Login</h2>
+        <form
+          action="/login"
+          method="post"
+          onsubmit="return validateLogin();"
+        >
+          <input name="email" placeholder="Email" required />
+          <input name="password" type="password" required />
+          <button class="btn">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      function validateRegister() {
+        const email = document.querySelector('input[name="email"]').value;
+        if (!email.includes("@")) {
+          alert("Enter a valid email");
+          return false;
+        }
+        return true;
+      }
+
+      function validateLogin() {
+        return true;
+      }
+    </script>
+  </body>
+</html>

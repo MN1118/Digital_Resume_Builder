@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Resume Builder | Resumatic</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="https://static.wixstatic.com/media/5c0589_e30e6ff390554063b3ccb163b93366aa~mv2.png"
+      type="image/x-icon"
+    />
+  </head>
+
+  <body>
+    <div class="builder-container">
+      <!-- LEFT FORM -->
+      <div class="form-panel card">
+        <h2 class="section-title">Resume Builder</h2>
+
+        <div class="form-group">
+          <label>Full Name</label>
+          <input id="name" oninput="updatePreview()" />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email</label>
+            <input id="email" oninput="updatePreview()" />
+          </div>
+
+          <div class="form-group">
+            <label>Phone</label>
+            <input id="phone" oninput="updatePreview()" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Professional Summary</label>
+          <textarea id="summary" rows="4" oninput="updatePreview()"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Skills (comma separated)</label>
+          <input id="skills" oninput="updatePreview()" />
+        </div>
+
+        <div class="form-group">
+          <label>Experience</label>
+          <textarea
+            id="experience"
+            rows="4"
+            oninput="updatePreview()"
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Education</label>
+          <textarea
+            id="education"
+            rows="3"
+            oninput="updatePreview()"
+          ></textarea>
+        </div>
+
+        <form action="/save_resume" method="post">
+          <input type="hidden" name="full_name" id="f-name" />
+          <input type="hidden" name="email" id="f-email" />
+          <input type="hidden" name="phone" id="f-phone" />
+          <input type="hidden" name="summary" id="f-summary" />
+          <input type="hidden" name="skills" id="f-skills" />
+          <input type="hidden" name="experience" id="f-experience" />
+          <input type="hidden" name="education" id="f-education" />
+
+          <button class="btn primary-btn">Save Resume</button>
+        </form>
+      </div>
+
+      <!-- RIGHT PREVIEW -->
+      <div class="preview-panel">
+        <div class="resume-card">
+          <!-- HEADER -->
+          <div class="resume-header">
+            <h1 id="p-name">Your Name</h1>
+            <p id="p-email">email@example.com</p>
+            <p id="p-phone">+91 XXXXXXXXXX</p>
+          </div>
+
+          <div class="resume-section">
+            <h3>Professional Summary</h3>
+            <p id="p-summary">Your summary will appear here.</p>
+          </div>
+
+          <div class="resume-section">
+            <h3>Skills</h3>
+            <div id="p-skills" class="skill-list">
+              <span class="skill-pill">Your skills</span>
+            </div>
+          </div>
+
+          <div class="resume-section">
+            <h3>Experience</h3>
+            <p id="p-experience">Your experience will appear here.</p>
+          </div>
+
+          <div class="resume-section">
+            <h3>Education</h3>
+            <p id="p-education">Your education will appear here.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function updatePreview() {
+        const name = nameEl.value;
+        const email = emailEl.value;
+        const phone = phoneEl.value;
+        const summary = summaryEl.value;
+        const skills = skillsEl.value;
+        const experience = experienceEl.value;
+        const education = educationEl.value;
+
+        pName.innerText = name || "Your Name";
+        pEmail.innerText = email || "email@example.com";
+        pPhone.innerText = phone || "+91 XXXXXXXXXX";
+        pSummary.innerText = summary || "Your summary will appear here.";
+        pExperience.innerText =
+          experience || "Your experience will appear here.";
+        pEducation.innerText = education || "Your education will appear here.";
+
+        // Skills pills
+        pSkills.innerHTML = "";
+        if (skills) {
+          skills.split(",").forEach((skill) => {
+            const span = document.createElement("span");
+            span.className = "skill-pill";
+            span.innerText = skill.trim();
+            pSkills.appendChild(span);
+          });
+        } else {
+          pSkills.innerHTML = `<span class="skill-pill">Your skills</span>`;
+        }
+
+        fName.value = name;
+        fEmail.value = email;
+        fPhone.value = phone;
+        fSummary.value = summary;
+        fSkills.value = skills;
+        fExperience.value = experience;
+        fEducation.value = education;
+      }
+
+      const [
+        nameEl,
+        emailEl,
+        phoneEl,
+        summaryEl,
+        skillsEl,
+        experienceEl,
+        educationEl,
+        pName,
+        pEmail,
+        pPhone,
+        pSummary,
+        pSkills,
+        pExperience,
+        pEducation,
+        fName,
+        fEmail,
+        fPhone,
+        fSummary,
+        fSkills,
+        fExperience,
+        fEducation,
+      ] = [
+        "name",
+        "email",
+        "phone",
+        "summary",
+        "skills",
+        "experience",
+        "education",
+        "p-name",
+        "p-email",
+        "p-phone",
+        "p-summary",
+        "p-skills",
+        "p-experience",
+        "p-education",
+        "f-name",
+        "f-email",
+        "f-phone",
+        "f-summary",
+        "f-skills",
+        "f-experience",
+        "f-education",
+      ].map((id) => document.getElementById(id));
+    </script>
+  </body>
+</html>
