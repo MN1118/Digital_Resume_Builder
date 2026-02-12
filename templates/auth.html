@@ -17,18 +17,19 @@
   <body>
     <div class="auth-wrapper">
       <!-- REGISTER -->
-      <div class="auth-card card">
+      <div class="auth-card">
         <h2>Create Account</h2>
-        <form
-          action="/register"
-          method="post"
-          onsubmit="return validateRegister();"
-        >
-          <input name="name" placeholder="Full Name" required />
-          <input name="email" placeholder="Email" required />
+        <form action="/register" method="post">
+          <input type="text" name="name" placeholder="Full Name" required />
           <input
-            name="password"
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            required
+          />
+          <input
             type="password"
+            name="password"
             placeholder="Password"
             required
           />
@@ -37,15 +38,21 @@
       </div>
 
       <!-- LOGIN -->
-      <div class="auth-card card">
+      <div class="auth-card">
         <h2>Login</h2>
-        <form
-          action="/login"
-          method="post"
-          onsubmit="return validateLogin();"
-        >
-          <input name="email" placeholder="Email" required />
-          <input name="password" type="password" required />
+        <form action="/login" method="post">
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
           <button class="btn">Login</button>
         </form>
       </div>

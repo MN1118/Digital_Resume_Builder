@@ -76,27 +76,53 @@ footer {
 
 /* AUTH */
 .auth-wrapper {
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  gap: 40px;
+  padding: 40px;
+  background: #F9FAFB;
 }
 
-.card {
+.auth-card {
   background: white;
-  padding: 32px;
-  border-radius: 16px;
-  width: 500px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  padding: 40px;
+  border-radius: 20px;
+  width: 380px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: 0.3s ease;
 }
 
-.card input,
-textarea {
+.auth-card:hover {
+  transform: translateY(-4px);
+}
+
+.auth-card h2 {
+  margin-bottom: 24px;
+  font-size: 22px;
+}
+
+.auth-card input {
   width: 100%;
-  margin: 10px 0;
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #e7e7e7;
+  margin-bottom: 16px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.auth-card input:focus {
+  border-color: #3b4eff;
+  box-shadow: 0 0 0 2px rgba(59, 78, 255, 0.1);
+  outline: none;
+}
+
+.auth-card .btn {
+  width: 100%;
+  margin-top: 10px;
+  font-weight: 500;
 }
 
 /* ---------- BUILDER LAYOUT FIX ---------- */
